@@ -1,0 +1,10 @@
+# External dependencies
+node_modules
+
+# Build files
+build
+.cache
+public
+
+# Test Coverage
+coverage
