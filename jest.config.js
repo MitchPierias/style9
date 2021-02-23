@@ -1,7 +1,13 @@
 module.exports = {
-  projects: ['<rootDir>/applications/web', '<rootDir>/applications/services'],
-  roots: ['<rootDir>/packages'],
+  displayName: 'bundle',
+  testEnvironment: 'node',
+  testMatch: ['**/*.test.{ts,tsx}'],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  },
+  roots: ['<rootDir>/src'],
   moduleDirectories: ['<rootDir>/node_modules'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   setupFiles: [
     '<rootDir>/config/jest/env.setup.js',
     '<rootDir>/config/jest/global.polyfill.js'
@@ -9,19 +15,16 @@ module.exports = {
   coverageDirectory: '<rootDir>/coverage',
   coveragePathIgnorePatterns: [
     '/node_modules/',
-    '/contracts/',
-    '/stories/',
     '/config/',
-    '/interfaces/',
     '/mocks/',
     '/index.ts'
   ],
   coverageThreshold: {
     global: {
-      branches: 69.14,
-      functions: 69,
-      lines: 79.35,
-      statements: 69
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100
     }
   }
 }
