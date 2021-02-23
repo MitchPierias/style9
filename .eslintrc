@@ -1,12 +1,15 @@
 {
     "root": true,
-    "parser": "@typescript-eslint/parser", // Allow ESLint to parse TypeScript
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
     "extends": [
-      "plugin:@typescript-eslint/recommended", // Recommended rules from @typescript-eslint
-      "prettier/@typescript-eslint", // Disables ESLint rules that would conflict with Prettier
-      "plugin:prettier/recommended", // Links Prettier errors into ESLint errors
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
       "plugin:jest/recommended",
-      "plugin:jest-formatting/recommended" // Adds padding between test blocks
+      "plugin:jest-formatting/recommended"
     ],
     "plugins": [
       "jest",
@@ -15,36 +18,39 @@
       "jest-formatting"
     ],
     "parserOptions": {
-      "ecmaVersion": 2018, // Parse modern ECMAScript features
-      "sourceType": "module", // Allow module imports
-      "ecmaFeatures": {
-        "jsx": true
-      }
+      "ecmaVersion": 2020,
+      "sourceType": "module"
     },
       "rules": {
-        "for-direction": "warn", // Check for-loop increments counter
-        "getter-return": "error", // Enforce return statements in getters
-        "no-async-promise-executor": "error", // Disallow using an async function as a Promise executor
-        "no-await-in-loop": "error", // Disallow `await` inside of loops
-        "no-compare-neg-zero": "error", // Disallow comparing against -0
-        "no-cond-assign": "error", // Disallow conditional assignment
-        "no-constant-condition": "warn", // Disallow constant expressions in conditions
-        "no-console": "warn", // Disallow the use of console commands
-        "no-control-regex": "error", // Disallow control characters in regex
-        "no-debugger": "error", // Disallow the use of `debugger`
-        "no-dupe-args": "error", // Disallow duplicate arguments in `function` definitions
-        "no-dupe-else-if": "error", // Disallow duplicate conditions in if-else chains
-        "no-dupe-keys": "error", // Disallow duplicate keys in object literals
-        "no-empty": "warn", // Disallow empty function blocks
-        "no-empty-character-class": "error", // Disallow empty character class in regular expressions
-        "no-ex-assign": "error", // Prevents destructive reassigning of exception errors
-        "no-extra-boolean-cast": "warn", // Disallows unnecessary boolean casts
-        "prefer-arrow-callback": "error", // Convert function to an arrow when possible
+        "curly": ["error", "multi-line"],
+        "linebreak-style": ["error", "unix"],
+        "for-direction": "warn",
+        "getter-return": "error",
+        "new-cap": "error",
+        "no-async-promise-executor": "error",
+        "no-await-in-loop": "error",
+        "no-case-declarations": "error",
+        "no-compare-neg-zero": "error",
+        "no-cond-assign": "error",
+        "no-confusing-arrow": "error",
+        "no-constant-condition": "warn",
+        "no-console": "warn",
+        "no-control-regex": "error",
+        "no-debugger": "error",
+        "no-dupe-args": "error",
+        "no-dupe-else-if": "error",
+        "no-dupe-keys": "error",
+        "no-empty": "warn",
+        "no-empty-character-class": "error",
+        "no-ex-assign": "error",
+        "no-extra-boolean-cast": "warn",
+        "no-var": "error",
+        "prefer-arrow-callback": "error",
         "max-lines-per-function": ["error", 160],
         "max-lines": ["error", 325],
-        "max-len": ["error", 140], // Sets the limit on line length
-        "arrow-body-style": ["error", "as-needed"], // Controls the use of braces around arrow function body
-        "no-magic-numbers": ["error", { "ignore": [0,1] }], // Ensures that special numbers are declared as constants    
+        "max-len": ["error", 80, { "ignoreComments": true }],
+        "arrow-body-style": ["error", "as-needed"],
+        "no-magic-numbers": ["error", { "ignore": [0,1] }],
         "no-extra-parens": [
           "error",
           "all",
@@ -57,8 +63,10 @@
           }
         ],
         "no-extra-semi": "warn", // Disallows additional semicolons
+        "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
         "no-unexpected-multiline": "error", // Fixes issues caused by removing semicolons
         "@typescript-eslint/interface-name-prefix": [
+          2,
           {
             "prefixWithI": "never"
           }
@@ -77,6 +85,7 @@
           // Requires blank lines between clauses in switch statements
           { "blankLine": "always", "prev": ["case", "default"], "next": "*" }
         ],
+        "prefer-const": "error",
         "import/no-duplicates": "error",
         "simple-import-sort/imports": ["error", {
           "groups": [
@@ -90,7 +99,7 @@
             ["^\\."]
           ]
         }],
-        "simple-import-sort/exports": "error" // Primarily for sorting `index.ts` files
+        "simple-import-sort/exports": "error"
       },
       "noInlineConfig": false,
       "overrides": [
