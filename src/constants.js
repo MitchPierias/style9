@@ -68,7 +68,7 @@ const UNITLESS_NUMBERS = [
   'scaleX',
   'scaleY',
   'scaleZ'
-];
+]
 
 // https://github.com/necolas/react-native-web/blob/36dacb2052efdab2a28655773dc76934157d9134/packages/react-native-web/src/exports/StyleSheet/constants.js
 const SHORTHAND_EXPANSIONS = {
@@ -100,6 +100,6 @@ const SHORTHAND_EXPANSIONS = {
   overflow: ['overflowX', 'overflowY'],
   overscrollBehavior: ['overscrollBehaviorX', 'overscrollBehaviorY'],
   padding: ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft']
-};
+}
 
-module.exports = { UNITLESS_NUMBERS, SHORTHAND_EXPANSIONS };
+module.exports = { UNITLESS_NUMBERS, SHORTHAND_EXPANSIONS }

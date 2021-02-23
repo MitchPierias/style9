@@ -53,7 +53,7 @@
  * THE SOFTWARE.
  */
 
-type PseudoElements = (
+type PseudoElements =
   | '::before'
   | '::after'
   | '::first-letter'
@@ -67,9 +67,8 @@ type PseudoElements = (
   | '::-webkit-search-decoration'
   | '::-webkit-inner-spin-button'
   | '::-webkit-outer-spin-button'
-);
 
-type PseudoClasses = (
+type PseudoClasses =
   | ':focus-within'
   | ':first-child'
   | ':last-child'
@@ -80,22 +79,22 @@ type PseudoClasses = (
   | ':active'
   | ':visited'
   | ':disabled'
-);
 
-type Style = StyleProperties & {
-  // Mixed keys not possible in TypeScript
-  // https://github.com/microsoft/TypeScript/issues/17867
-  // [key: string]: Style;
-  [key in PseudoClasses | PseudoElements]?: Style;
-};
+type Style = StyleProperties &
+  {
+    // Mixed keys not possible in TypeScript
+    // https://github.com/microsoft/TypeScript/issues/17867
+    // [key: string]: Style;
+    [key in PseudoClasses | PseudoElements]?: Style
+  }
 
-export default Style;
+export default Style
 
 export interface StyleProperties extends ViewStyle, TextStyle {}
 
-type BorderStyle = 'solid' | 'dotted' | 'dashed';
+type BorderStyle = 'solid' | 'dotted' | 'dashed'
 
-type Appearance = (
+type Appearance =
   | 'none'
   | 'auto'
   | 'button'
@@ -113,11 +112,10 @@ type Appearance = (
   | 'listbox'
   | 'meter'
   | 'progress-bar'
-);
 
-type Cursor = (
-  // global
-  | 'inherit'
+type Cursor =
+  | // global
+  'inherit'
   | 'initial'
   | 'unset'
   // keyword
@@ -155,68 +153,65 @@ type Cursor = (
   | 'wait'
   | 'zoom-in'
   | 'zoom-out'
-);
 
-interface ViewStyle extends
-  FlexStyle,
-  TransformsStyle,
-  TransitionStyle,
-  AnimationStyle,
-  SnapStyle,
-  SvgStyle
-{
-  backfaceVisibility?: 'visible' | 'hidden';
-  backgroundColor?: string;
-  backgroundClip?: 'border-box' | 'padding-box' | 'content-box';
-  borderBottomColor?: string;
-  borderBottomLeftRadius?: number;
-  borderBottomRightRadius?: number;
-  borderBottomWidth?: number;
-  borderColor?: string;
-  borderLeftColor?: string;
-  borderLeftWidth?: number;
-  borderRadius?: number;
-  borderRightColor?: string;
-  borderRightWidth?: number;
-  borderStyle?: 'none' | BorderStyle;
-  borderTopStyle?: 'none' | BorderStyle;
-  borderRightStyle?: 'none' | BorderStyle;
-  borderBottomStyle?: 'none' | BorderStyle;
-  borderLeftStyle?: 'none' | BorderStyle;
-  borderTopColor?: string;
-  borderTopLeftRadius?: number;
-  borderTopRightRadius?: number;
-  borderTopWidth?: number;
-  borderWidth?: number;
-  boxSizing?: 'content-box' | 'border-box';
-  opacity?: number;
-  outlineColor?: string;
-  outlineOffset?: number | string;
-  outlineStyle?: 'none' | BorderStyle;
-  outlineWidth?: number;
-  clear?: 'none' | 'left' | 'right' | 'both';
-  float?: 'none' | 'left' | 'right';
-  appearance?: Appearance;
-  filter?: string;
-  WebkitTouchHighlightColor?: string;
-  pointerEvents?: 'none' | 'auto';
-  columnWidth?: number | string;
-  columnCount?: number;
-  content?: string;
+interface ViewStyle
+  extends FlexStyle,
+    TransformsStyle,
+    TransitionStyle,
+    AnimationStyle,
+    SnapStyle,
+    SvgStyle {
+  backfaceVisibility?: 'visible' | 'hidden'
+  backgroundColor?: string
+  backgroundClip?: 'border-box' | 'padding-box' | 'content-box'
+  borderBottomColor?: string
+  borderBottomLeftRadius?: number
+  borderBottomRightRadius?: number
+  borderBottomWidth?: number
+  borderColor?: string
+  borderLeftColor?: string
+  borderLeftWidth?: number
+  borderRadius?: number
+  borderRightColor?: string
+  borderRightWidth?: number
+  borderStyle?: 'none' | BorderStyle
+  borderTopStyle?: 'none' | BorderStyle
+  borderRightStyle?: 'none' | BorderStyle
+  borderBottomStyle?: 'none' | BorderStyle
+  borderLeftStyle?: 'none' | BorderStyle
+  borderTopColor?: string
+  borderTopLeftRadius?: number
+  borderTopRightRadius?: number
+  borderTopWidth?: number
+  borderWidth?: number
+  boxSizing?: 'content-box' | 'border-box'
+  opacity?: number
+  outlineColor?: string
+  outlineOffset?: number | string
+  outlineStyle?: 'none' | BorderStyle
+  outlineWidth?: number
+  clear?: 'none' | 'left' | 'right' | 'both'
+  float?: 'none' | 'left' | 'right'
+  appearance?: Appearance
+  filter?: string
+  WebkitTouchHighlightColor?: string
+  pointerEvents?: 'none' | 'auto'
+  columnWidth?: number | string
+  columnCount?: number
+  content?: string
   cursor?: Cursor
 }
 
-type FlexAlignType = (
+type FlexAlignType =
   | 'flex-start'
   | 'flex-end'
   | 'center'
   | 'stretch'
   | 'baseline'
-);
 
-type DisplayOutside = 'block' | 'inline';
-type DisplayInside = 'flow-root' | 'table' | 'flex' | 'grid';
-type DisplayInternal = (
+type DisplayOutside = 'block' | 'inline'
+type DisplayInside = 'flow-root' | 'table' | 'flex' | 'grid'
+type DisplayInternal =
   | 'table-row-group'
   | 'table-header-group'
   | 'table-footer-group'
@@ -225,112 +220,105 @@ type DisplayInternal = (
   | 'table-column-group'
   | 'table-column'
   | 'table-caption'
-);
-type DisplayBox = 'contents' | 'none';
-type DisplayLegacy = (
+type DisplayBox = 'contents' | 'none'
+type DisplayLegacy =
   | 'inline-block'
   | 'inline-table'
   | 'inline-flex'
   | 'inline-grid'
-);
 
 interface FlexStyle {
-  alignContent?: (
+  alignContent?:
     | 'flex-start'
     | 'flex-end'
     | 'center'
     | 'stretch'
     | 'space-between'
     | 'space-around'
-  );
-  alignItems?: FlexAlignType;
-  alignSelf?: 'auto' | FlexAlignType;
-  aspectRatio?: number;
-  bottom?: number | string;
-  display?: (
+  alignItems?: FlexAlignType
+  alignSelf?: 'auto' | FlexAlignType
+  aspectRatio?: number
+  bottom?: number | string
+  display?:
     | DisplayOutside
     | DisplayInside
     | DisplayInternal
     | DisplayBox
     | DisplayLegacy
-  );
-  flexBasis?: number | string;
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexGrow?: number;
-  flexShrink?: number;
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  height?: number | string;
-  justifyContent?: (
+  flexBasis?: number | string
+  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
+  flexGrow?: number
+  flexShrink?: number
+  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse'
+  height?: number | string
+  justifyContent?:
     | 'flex-start'
     | 'flex-end'
     | 'center'
     | 'space-between'
     | 'space-around'
     | 'space-evenly'
-  );
-  left?: number | string;
-  margin?: number | string;
-  marginBottom?: number | string;
-  marginLeft?: number | string;
-  marginRight?: number | string;
-  marginTop?: number | string;
-  maxHeight?: number | string;
-  maxWidth?: number | string;
-  minHeight?: number | string;
-  minWidth?: number | string;
-  overflow?: 'visible' | 'hidden' | 'scroll';
-  padding?: number | string;
-  paddingBottom?: number | string;
-  paddingLeft?: number | string;
-  paddingRight?: number | string;
-  paddingTop?: number | string;
-  position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky';
-  right?: number | string;
-  top?: number | string;
-  width?: number | string;
-  zIndex?: number;
-  direction?: 'inherit' | 'ltr' | 'rtl';
-  gridAutoColumns?: string;
-  gridAutoFlow?: (
+  left?: number | string
+  margin?: number | string
+  marginBottom?: number | string
+  marginLeft?: number | string
+  marginRight?: number | string
+  marginTop?: number | string
+  maxHeight?: number | string
+  maxWidth?: number | string
+  minHeight?: number | string
+  minWidth?: number | string
+  overflow?: 'visible' | 'hidden' | 'scroll'
+  padding?: number | string
+  paddingBottom?: number | string
+  paddingLeft?: number | string
+  paddingRight?: number | string
+  paddingTop?: number | string
+  position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky'
+  right?: number | string
+  top?: number | string
+  width?: number | string
+  zIndex?: number
+  direction?: 'inherit' | 'ltr' | 'rtl'
+  gridAutoColumns?: string
+  gridAutoFlow?:
     | 'row'
     | 'column'
     | 'dense'
     | ['row', 'dense']
     | ['column', 'dense']
-  );
-  gridAutoRows?: string;
-  gridColumnEnd?: string;
-  gridColumnGap?: string;
-  gridColumnStart?: string;
-  gridRowEnd?: string;
-  gridRowGap?: string;
-  gridRowStart?: string;
-  gridTemplateAreas?: string;
-  gridTemplateColumns?: string;
-  gridTemplateRows?: string;
+  gridAutoRows?: string
+  gridColumnEnd?: string
+  gridColumnGap?: string
+  gridColumnStart?: string
+  gridRowEnd?: string
+  gridRowGap?: string
+  gridRowStart?: string
+  gridTemplateAreas?: string
+  gridTemplateColumns?: string
+  gridTemplateRows?: string
 }
 
 export interface TransformsStyle {
-  transform?: string;
+  transform?: string
 }
 
-type FontVariant = (
+type FontVariant =
   | 'small-caps'
   | 'oldstyle-nums'
   | 'lining-nums'
   | 'tabular-nums'
   | 'proportional-nums'
-);
 
-type TextDecorationLine = 'underline' | 'line-through' | 'overline';
+type TextDecorationLine = 'underline' | 'line-through' | 'overline'
 
 interface TextStyle {
-  color?: string;
-  fontFamily?: string;
-  fontSize?: number;
-  fontStyle?: 'normal' | 'italic';
-  fontVariant?: FontVariant[];
-  fontWeight?: (
+  color?: string
+  fontFamily?: string
+  fontSize?: number
+  fontStyle?: 'normal' | 'italic'
+  fontVariant?: FontVariant[]
+  fontWeight?:
     | 'normal'
     | 'bold'
     | '100'
@@ -342,97 +330,87 @@ interface TextStyle {
     | '700'
     | '800'
     | '900'
-  );
-  letterSpacing?: number | string;
-  lineHeight?: number | string;
-  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  textAlignLast?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  textDecorationLine?: 'none' | TextDecorationLine | TextDecorationLine[];
-  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed';
-  textDecorationColor?: string;
-  textOverflow?: 'clip' | 'ellipsis' | 'initial' | 'inherit';
-  textShadow?: string;
-  verticalAlign?: number | string;
-  WebkitFontSmoothing?: (
-    | 'none'
-    | 'auto'
-    | 'antialiased'
-    | 'subpixel-antialiased'
-  );
-  MozOsxFontSmoothing?: 'auto' | 'grayscale';
-  textRendering?: (
+  letterSpacing?: number | string
+  lineHeight?: number | string
+  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify'
+  textAlignLast?: 'auto' | 'left' | 'right' | 'center' | 'justify'
+  textDecorationLine?: 'none' | TextDecorationLine | TextDecorationLine[]
+  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed'
+  textDecorationColor?: string
+  textOverflow?: 'clip' | 'ellipsis' | 'initial' | 'inherit'
+  textShadow?: string
+  verticalAlign?: number | string
+  WebkitFontSmoothing?: 'none' | 'auto' | 'antialiased' | 'subpixel-antialiased'
+  MozOsxFontSmoothing?: 'auto' | 'grayscale'
+  textRendering?:
     | 'auto'
     | 'optimizeSpeed'
     | 'optimizeLegibility'
     | 'geometricPrecision'
-  );
-  visibility?: 'visible' | 'hidden' | 'collapse';
-  whiteSpace?: (
+  visibility?: 'visible' | 'hidden' | 'collapse'
+  whiteSpace?:
     | 'normal'
     | 'pre'
     | 'nowrap'
     | 'pre-wrap'
     | 'pre-line'
     | 'break-spaces'
-  );
-  lineBreak?: 'auto' | 'loose' | 'normal' | 'strict' | 'anywhere';
-  overflowWrap?: 'normal' | 'break-word' | 'anywhere';
-  tabSize?: number | string;
-  textIndent?: number | string | 'inherit';
-  textJustify?: 'none' | 'auto' | 'inter-character' | 'inter-word';
-  textTransform?: (
+  lineBreak?: 'auto' | 'loose' | 'normal' | 'strict' | 'anywhere'
+  overflowWrap?: 'normal' | 'break-word' | 'anywhere'
+  tabSize?: number | string
+  textIndent?: number | string | 'inherit'
+  textJustify?: 'none' | 'auto' | 'inter-character' | 'inter-word'
+  textTransform?:
     | 'none'
     | 'capitalize'
     | 'uppercase'
     | 'lowercase'
     | 'full-width'
     | 'full-size-kana'
-  );
-  wordBreak?: 'normal' | 'break-all' | 'keep-all' | 'break-word';
-  wordSpacing?: 'normal' | number | string;
+  wordBreak?: 'normal' | 'break-all' | 'keep-all' | 'break-word'
+  wordSpacing?: 'normal' | number | string
 }
 
 interface TransitionStyle {
-  transitionProperty?: keyof Style;
-  transitionDuration?: string;
-  transitionTimingFunction?: string;
-  transitionDelay?: string;
+  transitionProperty?: keyof Style
+  transitionDuration?: string
+  transitionTimingFunction?: string
+  transitionDelay?: string
 }
 
 interface AnimationStyle {
-  animationName?: string;
-  animationDuration?: string;
-  animationTimingFunction?: string;
-  animationDelay?: string;
-  animationDirection?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
-  animationIterationCount?: 'infinite' | number;
-  animationFillMode?: 'none' | 'forwards' | 'backwards' | 'both';
-  animationPlayState?: 'running' | 'paused';
+  animationName?: string
+  animationDuration?: string
+  animationTimingFunction?: string
+  animationDelay?: string
+  animationDirection?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse'
+  animationIterationCount?: 'infinite' | number
+  animationFillMode?: 'none' | 'forwards' | 'backwards' | 'both'
+  animationPlayState?: 'running' | 'paused'
 }
 
-type ScrollSnapType = 'none' | 'x' | 'y' | 'block' | 'inline' | 'both';
+type ScrollSnapType = 'none' | 'x' | 'y' | 'block' | 'inline' | 'both'
 
-type ScrollSnapAlign = 'none' | 'start' | 'end' | 'center';
+type ScrollSnapAlign = 'none' | 'start' | 'end' | 'center'
 
 interface SnapStyle {
-  scrollSnapType?: (
+  scrollSnapType?:
     | ScrollSnapType
     | [ScrollSnapType, ('mandatory' | 'proximity')?]
-  );
-  scrollSnapStop?: 'normal' | 'always';
-  scrollPaddingTop?: number | string;
-  scrollPaddingRight?: number | string;
-  scrollPaddingBottom?: number | string;
-  scrollPaddingLeft?: number | string;
-  scrollMarginTop?: number | string;
-  scrollMarginRight?: number | string;
-  scrollMarginBottom?: number | string;
-  scrollMarginLeft?: number | string;
-  scrollSnapAlign?: ScrollSnapAlign | [ScrollSnapAlign, ScrollSnapAlign];
+  scrollSnapStop?: 'normal' | 'always'
+  scrollPaddingTop?: number | string
+  scrollPaddingRight?: number | string
+  scrollPaddingBottom?: number | string
+  scrollPaddingLeft?: number | string
+  scrollMarginTop?: number | string
+  scrollMarginRight?: number | string
+  scrollMarginBottom?: number | string
+  scrollMarginLeft?: number | string
+  scrollSnapAlign?: ScrollSnapAlign | [ScrollSnapAlign, ScrollSnapAlign]
 }
 
 interface SvgStyle {
-  alignmentBaseline?: (
+  alignmentBaseline?:
     | 'auto'
     | 'baseline'
     | 'before-edge'
@@ -445,13 +423,12 @@ interface SvgStyle {
     | 'alphabetic'
     | 'hanging'
     | 'mathematical'
-  );
-  baselineShift?: number | string;
-  color?: string;
-  colorInterpolation?: 'auto' | 'sRGB' | 'linearRGB';
-  colorRendering?: 'auto' | 'optimizeSpeed' | 'optimizeQuality';
-  cursor?: Cursor;
-  dominantBaseline?: (
+  baselineShift?: number | string
+  color?: string
+  colorInterpolation?: 'auto' | 'sRGB' | 'linearRGB'
+  colorRendering?: 'auto' | 'optimizeSpeed' | 'optimizeQuality'
+  cursor?: Cursor
+  dominantBaseline?:
     | 'auto'
     | 'text-bottom'
     | 'alphabetic'
@@ -461,28 +438,26 @@ interface SvgStyle {
     | 'mathematical'
     | 'hanging'
     | 'text-top'
-  );
-  fill?: string;
-  fillOpacity?: string;
-  fillRule?: 'nonzero' | 'evenodd';
-  imageRendering?: 'auto' | 'optimizeSpeed' | 'optimizeQuality';
-  shapeRendering?: (
+  fill?: string
+  fillOpacity?: string
+  fillRule?: 'nonzero' | 'evenodd'
+  imageRendering?: 'auto' | 'optimizeSpeed' | 'optimizeQuality'
+  shapeRendering?:
     | 'auto'
     | 'optimizeSpeed'
     | 'crispEdges'
     | 'geometricPrecision'
-  );
-  stopColor?: string;
-  stopOpacity?: number;
-  stroke?: string;
-  strokeDasharray?: number | string | (number | string)[];
-  strokeDashoffset?: number | string;
-  strokeLinecap?: 'butt' | 'round' | 'square';
-  strokeLinejoin?: 'miter' | 'round' | 'bevel';
-  strokeMiterlimit?: number;
-  strokeOpacity?: number | string;
-  strokeWidth?: number | string;
-  textAnchor?: 'start' | 'middle' | 'end';
-  vectorEffect?: 'none' | 'non-scaling-stroke';
-  writingMode?: 'lr-tb' | 'rl-tb' | 'tb-rl' | 'lr' | 'rl' | 'tb';
+  stopColor?: string
+  stopOpacity?: number
+  stroke?: string
+  strokeDasharray?: number | string | (number | string)[]
+  strokeDashoffset?: number | string
+  strokeLinecap?: 'butt' | 'round' | 'square'
+  strokeLinejoin?: 'miter' | 'round' | 'bevel'
+  strokeMiterlimit?: number
+  strokeOpacity?: number | string
+  strokeWidth?: number | string
+  textAnchor?: 'start' | 'middle' | 'end'
+  vectorEffect?: 'none' | 'non-scaling-stroke'
+  writingMode?: 'lr-tb' | 'rl-tb' | 'tb-rl' | 'lr' | 'rl' | 'tb'
 }

@@ -1,0 +1,120 @@
+{
+    "root": true,
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "plugin:jest/recommended",
+      "plugin:jest-formatting/recommended"
+    ],
+    "plugins": [
+      "jest",
+      "simple-import-sort",
+      "import",
+      "jest-formatting"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+      "rules": {
+        "curly": ["error", "multi-line"],
+        "linebreak-style": ["error", "unix"],
+        "for-direction": "warn",
+        "getter-return": "error",
+        "new-cap": "error",
+        "no-async-promise-executor": "error",
+        "no-await-in-loop": "error",
+        "no-case-declarations": "error",
+        "no-compare-neg-zero": "error",
+        "no-cond-assign": "error",
+        "no-confusing-arrow": "error",
+        "no-constant-condition": "warn",
+        "no-console": "warn",
+        "no-control-regex": "error",
+        "no-debugger": "error",
+        "no-dupe-args": "error",
+        "no-dupe-else-if": "error",
+        "no-dupe-keys": "error",
+        "no-empty": "warn",
+        "no-empty-character-class": "error",
+        "no-ex-assign": "error",
+        "no-extra-boolean-cast": "warn",
+        "no-var": "error",
+        "prefer-arrow-callback": "error",
+        "max-lines-per-function": ["error", 160],
+        "max-lines": ["error", 325],
+        "max-len": ["error", 80, { "ignoreComments": true }],
+        "arrow-body-style": ["error", "as-needed"],
+        "no-magic-numbers": ["error", { "ignore": [0,1] }],
+        "no-extra-parens": [
+          "error",
+          "all",
+          {
+            "returnAssign": true,
+            "nestedBinaryExpressions": false,
+            "ignoreJSX": "all",
+            "enforceForArrowConditionals": true,
+            "enforceForSequenceExpressions": true
+          }
+        ],
+        "no-extra-semi": "warn", // Disallows additional semicolons
+        "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+        "no-unexpected-multiline": "error", // Fixes issues caused by removing semicolons
+        "@typescript-eslint/interface-name-prefix": [
+          2,
+          {
+            "prefixWithI": "never"
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "sort-imports": "off",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "padding-line-between-statements": ["error", 
+          // Requires blank lines before all return statements
+          { "blankLine": "always", "prev": "*", "next": "return" },
+          // Requires blank lines after every sequence of variables
+          { "blankLine": "always", "prev": ["const", "let"], "next": "*" }, 
+          { "blankLine": "any", "prev": ["const", "let"], "next": ["const", "let"]},
+          // Requires blank lines between clauses in switch statements
+          { "blankLine": "always", "prev": ["case", "default"], "next": "*" }
+        ],
+        "prefer-const": "error",
+        "import/no-duplicates": "error",
+        "simple-import-sort/imports": ["error", {
+          "groups": [
+            // Internal packages
+            ["^(@style9)(/.*|$)"],
+            // Side effect imports
+            ["^\\u0000"],
+            // Absolute imports and other imports such as Vue-style `@/foo`.
+            ["^[^.]"],
+            // Relative imports.
+            ["^\\."]
+          ]
+        }],
+        "simple-import-sort/exports": "error"
+      },
+      "noInlineConfig": false,
+      "overrides": [
+        {
+          "files": ["@types/*"],
+          "rules": {
+            "no-magic-numbers":"off"
+          }
+        },
+        {
+          "files": ["*.test.*"],
+          "rules": {
+            "no-unused-expressions": "warn",
+            "no-magic-numbers":"off"
+          }
+        }
+      ]
+  }

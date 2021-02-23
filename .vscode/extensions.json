@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "pmneo.tsimporter",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "miclo.sort-typescript-imports"
+  ],
+  "unwantedRecommendations": [
+    "dbaeumer.vscode-eslint",
+    "hookyqr.beautify",
+    "dbaeumer.jshint"
+  ]
+}

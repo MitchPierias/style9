@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const compile = require('./compile.js');
+const compile = require('./compile.js')
 
 it('supports nesting', () => {
   const input = `
@@ -12,12 +12,12 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports at rules', () => {
   const input = `
@@ -30,12 +30,12 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports deep nesting', () => {
   const input = `
@@ -52,12 +52,12 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('generates correct class names', () => {
   const input = `
@@ -75,12 +75,12 @@ const styles = style9.create({
   }
 });
 styles('default', 'hidden');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('translates old pseudo element', () => {
   const input = `
@@ -94,12 +94,12 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('throws in invalid nesting', () => {
   const input = `
@@ -111,6 +111,7 @@ const styles = style9.create({
     }
   }
 });
-  `;
-  expect(() => compile(input)).toThrow();
-});
+  `
+
+  expect(() => compile(input)).toThrow()
+})

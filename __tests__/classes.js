@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const compile = require('./compile.js');
+const compile = require('./compile.js')
 
 it('string literals', () => {
   const input = `
@@ -14,10 +14,11 @@ const styles = style9.create({
   }
 });
 styles('default', 'red');
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('moves test', () => {
   const input = `
@@ -28,10 +29,11 @@ const styles = style9.create({
   }
 });
 styles(foo() && 'default');
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('ternary', () => {
   const input = `
@@ -46,10 +48,11 @@ const styles = style9.create({
   }
 });
 styles(foo ? 'default' : 'red');
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('object', () => {
   const input = `
@@ -67,10 +70,11 @@ styles({
   default: foo,
   red: bar
 });
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('mixed', () => {
   const input = `
@@ -87,10 +91,11 @@ const styles = style9.create({
 styles({
   default: foo
 }, 'red');
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('property access', () => {
   const input = `
@@ -106,10 +111,11 @@ const styles2 = style9.create({
   }
 });
 style9(styles1.default, styles2.red)
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('hoists function call', () => {
   const input = `
@@ -122,10 +128,11 @@ const styles = style9.create({
 styles({
   default: foo()
 })
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('supports destructuring assignment', () => {
   const input = `
@@ -136,10 +143,11 @@ const { blue } = style9.create({
   }
 });
 console.log(blue)
-  `;
-  const { code } = compile(input);
-  expect(code).toMatchSnapshot();
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).toMatchSnapshot()
+})
 
 it('supports member expression access', () => {
   const input = `
@@ -153,12 +161,12 @@ const blue = style9.create({
   }
 }).blue;
 console.log(blue)
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports static bracket access', () => {
   const input = `
@@ -171,12 +179,12 @@ const blue = style9.create({
     color: 'red'
   }
 })['blue'];
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports dynamic bracket access', () => {
   const input = `
@@ -189,12 +197,12 @@ const styles = style9.create({
     color: 'red'
   }
 })[blue];
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports spread assignment', () => {
   const input = `
@@ -204,12 +212,12 @@ const { ...styles } = style9.create({
     color: 'blue'
   }
 });
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports spread use', () => {
   const input = `
@@ -220,9 +228,9 @@ const styles = style9.create({
   }
 });
 console.log({ ...styles });
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
