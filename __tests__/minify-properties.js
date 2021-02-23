@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const compile = require('./compile.js');
+const compile = require('./compile.js')
 
 it('does not minify by default', () => {
   const input = `
@@ -10,11 +10,11 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { code } = compile(input);
+  `
+  const { code } = compile(input)
 
-  expect(code).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+})
 
 it('does not minify styles', () => {
   const input = `
@@ -25,11 +25,11 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { styles } = compile(input);
+  `
+  const { styles } = compile(input)
 
-  expect(styles).toMatchSnapshot();
-});
+  expect(styles).toMatchSnapshot()
+})
 
 it('minifies known properties', () => {
   const input = `
@@ -40,11 +40,11 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { code } = compile(input, { minifyProperties: true });
+  `
+  const { code } = compile(input, { minifyProperties: true })
 
-  expect(code).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+})
 
 it('hashes unknown properties', () => {
   const input = `
@@ -55,11 +55,11 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { code } = compile(input, { minifyProperties: true });
+  `
+  const { code } = compile(input, { minifyProperties: true })
 
-  expect(code).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+})
 
 it('minifies nested properties', () => {
   const input = `
@@ -74,8 +74,8 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { code } = compile(input, { minifyProperties: true });
+  `
+  const { code } = compile(input, { minifyProperties: true })
 
-  expect(code).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+})

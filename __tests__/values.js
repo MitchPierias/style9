@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const compile = require('./compile.js');
+const compile = require('./compile.js')
 
 it('compiles', () => {
   const input = `
@@ -10,10 +10,11 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { code } = compile(input);
-  expect(code).not.toBe(input);
-});
+  `
+  const { code } = compile(input)
+
+  expect(code).not.toBe(input)
+})
 
 it('converts to pixels', () => {
   const input = `
@@ -24,11 +25,11 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { styles } = compile(input);
+  `
+  const { styles } = compile(input)
 
-  expect(styles).toMatchSnapshot();
-});
+  expect(styles).toMatchSnapshot()
+})
 
 it('does not converts to pixels', () => {
   const input = `
@@ -39,11 +40,11 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { styles } = compile(input);
+  `
+  const { styles } = compile(input)
 
-  expect(styles).toMatchSnapshot();
-});
+  expect(styles).toMatchSnapshot()
+})
 
 it('expands shorthand', () => {
   const input = `
@@ -54,12 +55,12 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('does not override longhand', () => {
   const input = `
@@ -71,12 +72,12 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('converts fontSize pixels', () => {
   const input = `
@@ -87,11 +88,11 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { styles } = compile(input);
+  `
+  const { styles } = compile(input)
 
-  expect(styles).toMatchSnapshot();
-});
+  expect(styles).toMatchSnapshot()
+})
 
 it('accepts an array', () => {
   const input = `
@@ -102,11 +103,11 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { styles } = compile(input);
+  `
+  const { styles } = compile(input)
 
-  expect(styles).toMatchSnapshot();
-});
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports constants', () => {
   const input = `
@@ -118,11 +119,11 @@ const styles = style9.create({
   }
 });
 styles('default');
-  `;
-  const { styles } = compile(input);
+  `
+  const { styles } = compile(input)
 
-  expect(styles).toMatchSnapshot();
-});
+  expect(styles).toMatchSnapshot()
+})
 
 it('removes unused styles', () => {
   const input = `
@@ -132,12 +133,12 @@ const styles = style9.create({
     color: 'blue'
   }
 });
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports static bracket access', () => {
   const input = `
@@ -151,12 +152,12 @@ const styles = style9.create({
   }
 });
 styles['default']
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports dynamic bracket access', () => {
   const input = `
@@ -170,12 +171,12 @@ const styles = style9.create({
   }
 });
 styles[blue]
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports arrow function', () => {
   const input = `
@@ -186,12 +187,12 @@ const styles = style9.create({
   }
 });
 const get = state => styles(state && 'default');
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('does not work without declaration', () => {
   const input = `
@@ -201,9 +202,10 @@ style9.create({
     color: 'blue'
   }
 });
-  `;
-  expect(() => compile(input)).toThrow();
-});
+  `
+
+  expect(() => compile(input)).toThrow()
+})
 
 it('only supports Member- and CallExpression on styles', () => {
   const input = `
@@ -214,14 +216,16 @@ const styles = style9.create({
   }
 });
 foo(styles);
-  `;
-  expect(() => compile(input)).toThrow();
-});
+  `
+
+  expect(() => compile(input)).toThrow()
+})
 
 it('throws on non-existing property', () => {
   const input = `
 import style9 from 'style9';
 style9.foo;
-  `;
-  expect(() => compile(input)).toThrow();
-});
+  `
+
+  expect(() => compile(input)).toThrow()
+})

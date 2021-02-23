@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const compile = require('./compile.js');
+const compile = require('./compile.js')
 
 it('supports keyframes', () => {
   const input = `
@@ -11,12 +11,12 @@ style9.keyframes({
   '100%': {
   }
 });
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('converts from', () => {
   const input = `
@@ -26,12 +26,12 @@ style9.keyframes({
     color: 'blue'
   }
 });
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('converts to', () => {
   const input = `
@@ -41,12 +41,12 @@ style9.keyframes({
     color: 'blue'
   }
 });
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})
 
 it('supports settings animationName directly', () => {
   const input = `
@@ -61,9 +61,9 @@ const styles = style9.create({
   }
 });
 styles.default
-  `;
-  const { code, styles } = compile(input);
+  `
+  const { code, styles } = compile(input)
 
-  expect(code).toMatchSnapshot();
-  expect(styles).toMatchSnapshot();
-});
+  expect(code).toMatchSnapshot()
+  expect(styles).toMatchSnapshot()
+})

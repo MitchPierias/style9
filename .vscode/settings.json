@@ -26,6 +26,7 @@
     "camelcase",
     "cond",
     "deopt",
+    "linebreak",
     "multiline",
     "murmurhash",
     "parens"

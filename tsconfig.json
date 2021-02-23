@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "noEmit": true,
+      "esModuleInterop": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "skipLibCheck": true,
+      "downlevelIteration": true,
+      "jsx": "react",
+      "target": "ES2016",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "sourceMap": true,
+      "sourceRoot": "/",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "removeComments": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "noUnusedLocals": true,
+      "typeRoots": ["./node_modules/@types/", "./@types/"],
+      "noImplicitReturns": true,
+      "suppressImplicitAnyIndexErrors": true
+    },
+    "include": [
+      "**/*", 
+      "packages/**/*.d.ts"
+    ],
+    "exclude": [
+      "e2e",
+      "node_modules",
+      "!node_modules/@types",
+      "**/*.test.ts", 
+      "**/*.spec.ts",
+      "mocks", 
+      "build", 
+      "coverage"
+    ]
+  }
