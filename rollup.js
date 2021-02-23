@@ -4,7 +4,12 @@ const babelPlugin = require('./babel.js')
 const { createFilter } = require('@rollup/pluginutils')
 const processCSS = require('./src/process-css.js')
 
-module.exports = function style9Plugin({ include, exclude, fileName, name } = {}) {
+module.exports = function style9Plugin({
+  include,
+  exclude,
+  fileName,
+  name
+} = {}) {
   // Default name required to ensure extension
   if (!fileName && !name) name = 'index.css'
 

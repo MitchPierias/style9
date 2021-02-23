@@ -28,7 +28,14 @@ class Style9Plugin {
           const result = processCSS(source, postcssOpts)
 
           if (result.map) {
-            compilation.assets[path] = new SourceMapSource(result.css, path, JSON.parse(result.map), source, map, true)
+            compilation.assets[path] = new SourceMapSource(
+              result.css,
+              path,
+              JSON.parse(result.map),
+              source,
+              map,
+              true
+            )
           } else {
             compilation.assets[path] = new RawSource(result.css)
           }

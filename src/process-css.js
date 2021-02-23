@@ -36,7 +36,11 @@ function parseSelector(selector) {
 }
 
 function getPseudoClasses(selector) {
-  return selector.filter((selector) => selector.type === 'pseudo' && selector.value[1] !== ':').map((selector) => selector.value)
+  return selector
+    .filter(
+      (selector) => selector.type === 'pseudo' && selector.value[1] !== ':'
+    )
+    .map((selector) => selector.value)
 }
 
 function removeWithContext(rule) {
@@ -120,7 +124,10 @@ function sortNodes(nodes) {
     }
 
     if (a.mediaQueries.length) {
-      return sortCSSmq(a.mediaQueries.join(' and '), b.mediaQueries.join(' and '))
+      return sortCSSmq(
+        a.mediaQueries.join(' and '),
+        b.mediaQueries.join(' and ')
+      )
     }
   })
 

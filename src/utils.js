@@ -119,12 +119,23 @@ function extractNode(path, node) {
     path.scope.path.ensureBlock()
   }
 
-  path.getStatementParent().insertBefore(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(name), node)]))
+  path
+    .getStatementParent()
+    .insertBefore(
+      t.variableDeclaration('const', [
+        t.variableDeclarator(t.identifier(name), node)
+      ])
+    )
 
   return t.identifier(name)
 }
 
-const LEGACY_PSEUDO_ELEMENTS = [':before', ':after', ':first-letter', ':first-line']
+const LEGACY_PSEUDO_ELEMENTS = [
+  ':before',
+  ':after',
+  ':first-letter',
+  ':first-line'
+]
 
 function normalizePseudoElements(string) {
   if (LEGACY_PSEUDO_ELEMENTS.includes(string)) {

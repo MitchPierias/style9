@@ -41,13 +41,23 @@ const CASES = [
   },
   {
     name: 'mobile first',
-    input: '@media (min-width: 200px){.b{opacity:1}}' + '@media (min-width: 100px){.a{opacity:1}}' + '.c{opacity:1}',
-    expected: '.c{opacity:1}' + '@media (min-width: 100px){.a{opacity:1}}' + '@media (min-width: 200px){.b{opacity:1}}'
+    input:
+      '@media (min-width: 200px){.b{opacity:1}}' +
+      '@media (min-width: 100px){.a{opacity:1}}' +
+      '.c{opacity:1}',
+    expected:
+      '.c{opacity:1}' +
+      '@media (min-width: 100px){.a{opacity:1}}' +
+      '@media (min-width: 200px){.b{opacity:1}}'
   },
   {
     name: 'pseudo order before media query',
-    input: '@media (max-width: 200px){.b:active{opacity:1}}' + '@media (max-width: 100px){.a:hover{opacity:1}}',
-    expected: '@media (max-width: 100px){.a:hover{opacity:1}}' + '@media (max-width: 200px){.b:active{opacity:1}}'
+    input:
+      '@media (max-width: 200px){.b:active{opacity:1}}' +
+      '@media (max-width: 100px){.a:hover{opacity:1}}',
+    expected:
+      '@media (max-width: 100px){.a:hover{opacity:1}}' +
+      '@media (max-width: 200px){.b:active{opacity:1}}'
   },
   {
     name: 'nested media query',

@@ -1,5 +1,7 @@
 const Style9Plugin = require('./webpack/index.js')
-const { getClientStyleLoader } = require('next/dist/build/webpack/config/blocks/css/loaders/client')
+const {
+  getClientStyleLoader
+} = require('next/dist/build/webpack/config/blocks/css/loaders/client')
 const { stringifyCssRequest } = require('./src/plugin-utils.js')
 
 function getInlineLoader(options) {

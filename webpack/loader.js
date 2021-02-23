@@ -5,7 +5,8 @@ const virtualModules = require('./virtualModules.js')
 const path = require('path')
 
 async function style9Loader(input, inputSourceMap) {
-  const { inlineLoader = '', outputCSS = true, ...options } = loaderUtils.getOptions(this) || {}
+  const { inlineLoader = '', outputCSS = true, ...options } =
+    loaderUtils.getOptions(this) || {}
 
   this.async()
 
@@ -22,9 +23,13 @@ async function style9Loader(input, inputSourceMap) {
   } else if (!outputCSS) {
     this.callback(null, code, map)
   } else {
-    const cssPath = loaderUtils.interpolateName(this, '[path][name].[hash:base64:7].css', {
-      content: metadata.style9
-    })
+    const cssPath = loaderUtils.interpolateName(
+      this,
+      '[path][name].[hash:base64:7].css',
+      {
+        content: metadata.style9
+      }
+    )
 
     virtualModules.writeModule(cssPath, metadata.style9)
 

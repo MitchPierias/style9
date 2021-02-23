@@ -52,17 +52,23 @@ function generateExpression(args, classObj) {
 
   const conditionals = usedProps
     .map((prop) => {
-      const classes = Object.fromEntries(Object.entries(classObj).map(([key, val]) => [key, val[prop]]))
+      const classes = Object.fromEntries(
+        Object.entries(classObj).map(([key, val]) => [key, val[prop]])
+      )
 
       const conditionalArgs = getConditionalArgs(args, classes)
 
       if (!conditionalArgs.length) return
 
-      return conditionalArgs.reduceRight((acc, prop) => t.conditionalExpression(prop.test, prop.value, acc))
+      return conditionalArgs.reduceRight((acc, prop) =>
+        t.conditionalExpression(prop.test, prop.value, acc)
+      )
     })
     .filter(Boolean)
 
-  const additions = conditionals.reduceRight((acc, expr) => t.binaryExpression('+', expr, acc))
+  const additions = conditionals.reduceRight((acc, expr) =>
+    t.binaryExpression('+', expr, acc)
+  )
 
   return t.expressionStatement(additions)
 }

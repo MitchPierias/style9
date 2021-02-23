@@ -154,7 +154,13 @@ type Cursor =
   | 'zoom-in'
   | 'zoom-out'
 
-interface ViewStyle extends FlexStyle, TransformsStyle, TransitionStyle, AnimationStyle, SnapStyle, SvgStyle {
+interface ViewStyle
+  extends FlexStyle,
+    TransformsStyle,
+    TransitionStyle,
+    AnimationStyle,
+    SnapStyle,
+    SvgStyle {
   backfaceVisibility?: 'visible' | 'hidden'
   backgroundColor?: string
   backgroundClip?: 'border-box' | 'padding-box' | 'content-box'
@@ -196,7 +202,12 @@ interface ViewStyle extends FlexStyle, TransformsStyle, TransitionStyle, Animati
   cursor?: Cursor
 }
 
-type FlexAlignType = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline'
+type FlexAlignType =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'stretch'
+  | 'baseline'
 
 type DisplayOutside = 'block' | 'inline'
 type DisplayInside = 'flow-root' | 'table' | 'flex' | 'grid'
@@ -210,22 +221,43 @@ type DisplayInternal =
   | 'table-column'
   | 'table-caption'
 type DisplayBox = 'contents' | 'none'
-type DisplayLegacy = 'inline-block' | 'inline-table' | 'inline-flex' | 'inline-grid'
+type DisplayLegacy =
+  | 'inline-block'
+  | 'inline-table'
+  | 'inline-flex'
+  | 'inline-grid'
 
 interface FlexStyle {
-  alignContent?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'space-between' | 'space-around'
+  alignContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'stretch'
+    | 'space-between'
+    | 'space-around'
   alignItems?: FlexAlignType
   alignSelf?: 'auto' | FlexAlignType
   aspectRatio?: number
   bottom?: number | string
-  display?: DisplayOutside | DisplayInside | DisplayInternal | DisplayBox | DisplayLegacy
+  display?:
+    | DisplayOutside
+    | DisplayInside
+    | DisplayInternal
+    | DisplayBox
+    | DisplayLegacy
   flexBasis?: number | string
   flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
   flexGrow?: number
   flexShrink?: number
   flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse'
   height?: number | string
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
+  justifyContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly'
   left?: number | string
   margin?: number | string
   marginBottom?: number | string
@@ -249,7 +281,12 @@ interface FlexStyle {
   zIndex?: number
   direction?: 'inherit' | 'ltr' | 'rtl'
   gridAutoColumns?: string
-  gridAutoFlow?: 'row' | 'column' | 'dense' | ['row', 'dense'] | ['column', 'dense']
+  gridAutoFlow?:
+    | 'row'
+    | 'column'
+    | 'dense'
+    | ['row', 'dense']
+    | ['column', 'dense']
   gridAutoRows?: string
   gridColumnEnd?: string
   gridColumnGap?: string
@@ -266,7 +303,12 @@ export interface TransformsStyle {
   transform?: string
 }
 
-type FontVariant = 'small-caps' | 'oldstyle-nums' | 'lining-nums' | 'tabular-nums' | 'proportional-nums'
+type FontVariant =
+  | 'small-caps'
+  | 'oldstyle-nums'
+  | 'lining-nums'
+  | 'tabular-nums'
+  | 'proportional-nums'
 
 type TextDecorationLine = 'underline' | 'line-through' | 'overline'
 
@@ -276,7 +318,18 @@ interface TextStyle {
   fontSize?: number
   fontStyle?: 'normal' | 'italic'
   fontVariant?: FontVariant[]
-  fontWeight?: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+  fontWeight?:
+    | 'normal'
+    | 'bold'
+    | '100'
+    | '200'
+    | '300'
+    | '400'
+    | '500'
+    | '600'
+    | '700'
+    | '800'
+    | '900'
   letterSpacing?: number | string
   lineHeight?: number | string
   textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify'
@@ -289,15 +342,31 @@ interface TextStyle {
   verticalAlign?: number | string
   WebkitFontSmoothing?: 'none' | 'auto' | 'antialiased' | 'subpixel-antialiased'
   MozOsxFontSmoothing?: 'auto' | 'grayscale'
-  textRendering?: 'auto' | 'optimizeSpeed' | 'optimizeLegibility' | 'geometricPrecision'
+  textRendering?:
+    | 'auto'
+    | 'optimizeSpeed'
+    | 'optimizeLegibility'
+    | 'geometricPrecision'
   visibility?: 'visible' | 'hidden' | 'collapse'
-  whiteSpace?: 'normal' | 'pre' | 'nowrap' | 'pre-wrap' | 'pre-line' | 'break-spaces'
+  whiteSpace?:
+    | 'normal'
+    | 'pre'
+    | 'nowrap'
+    | 'pre-wrap'
+    | 'pre-line'
+    | 'break-spaces'
   lineBreak?: 'auto' | 'loose' | 'normal' | 'strict' | 'anywhere'
   overflowWrap?: 'normal' | 'break-word' | 'anywhere'
   tabSize?: number | string
   textIndent?: number | string | 'inherit'
   textJustify?: 'none' | 'auto' | 'inter-character' | 'inter-word'
-  textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana'
+  textTransform?:
+    | 'none'
+    | 'capitalize'
+    | 'uppercase'
+    | 'lowercase'
+    | 'full-width'
+    | 'full-size-kana'
   wordBreak?: 'normal' | 'break-all' | 'keep-all' | 'break-word'
   wordSpacing?: 'normal' | number | string
 }
@@ -325,7 +394,9 @@ type ScrollSnapType = 'none' | 'x' | 'y' | 'block' | 'inline' | 'both'
 type ScrollSnapAlign = 'none' | 'start' | 'end' | 'center'
 
 interface SnapStyle {
-  scrollSnapType?: ScrollSnapType | [ScrollSnapType, ('mandatory' | 'proximity')?]
+  scrollSnapType?:
+    | ScrollSnapType
+    | [ScrollSnapType, ('mandatory' | 'proximity')?]
   scrollSnapStop?: 'normal' | 'always'
   scrollPaddingTop?: number | string
   scrollPaddingRight?: number | string
@@ -357,12 +428,25 @@ interface SvgStyle {
   colorInterpolation?: 'auto' | 'sRGB' | 'linearRGB'
   colorRendering?: 'auto' | 'optimizeSpeed' | 'optimizeQuality'
   cursor?: Cursor
-  dominantBaseline?: 'auto' | 'text-bottom' | 'alphabetic' | 'ideographic' | 'middle' | 'central' | 'mathematical' | 'hanging' | 'text-top'
+  dominantBaseline?:
+    | 'auto'
+    | 'text-bottom'
+    | 'alphabetic'
+    | 'ideographic'
+    | 'middle'
+    | 'central'
+    | 'mathematical'
+    | 'hanging'
+    | 'text-top'
   fill?: string
   fillOpacity?: string
   fillRule?: 'nonzero' | 'evenodd'
   imageRendering?: 'auto' | 'optimizeSpeed' | 'optimizeQuality'
-  shapeRendering?: 'auto' | 'optimizeSpeed' | 'crispEdges' | 'geometricPrecision'
+  shapeRendering?:
+    | 'auto'
+    | 'optimizeSpeed'
+    | 'crispEdges'
+    | 'geometricPrecision'
   stopColor?: string
   stopOpacity?: number
   stroke?: string
