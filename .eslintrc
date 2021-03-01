@@ -48,7 +48,11 @@
         "prefer-arrow-callback": "error",
         "max-lines-per-function": ["error", 160],
         "max-lines": ["error", 325],
-        "max-len": ["error", 80, { "ignoreComments": true }],
+        "max-len": ["error", 80, {
+          "ignoreComments": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true
+        }],
         "arrow-body-style": ["error", "as-needed"],
         "no-magic-numbers": ["error", { "ignore": [0,1] }],
         "no-extra-parens": [
@@ -65,10 +69,15 @@
         "no-extra-semi": "warn", // Disallows additional semicolons
         "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
         "no-unexpected-multiline": "error", // Fixes issues caused by removing semicolons
-        "@typescript-eslint/interface-name-prefix": [
-          2,
+        "@typescript-eslint/naming-convention": [
+          "error",
           {
-            "prefixWithI": "never"
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": true
+            }
           }
         ],
         "@typescript-eslint/explicit-function-return-type": "off",
