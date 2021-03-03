@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /**
  * The MIT License (MIT)
  *
@@ -323,6 +324,7 @@ interface TextStyle {
     | 'bold'
     | '100'
     | '200'
+    // eslint-disable-next-line max-lines
     | '300'
     | '400'
     | '500'
